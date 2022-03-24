@@ -1,0 +1,27 @@
+PortSystem          1.0
+name                coldsync
+version             3.0.1
+license             Artistic-1
+maintainers         @nkorth
+
+categories          palm
+description         Tool for synchronizing Palm OS devices with Unix workstations
+long_description    Tool for synchronizing Palm OS devices with Unix workstations
+
+platforms           darwin
+
+homepage            https://www.coldsync.org
+master_sites        https://www.nkorth.com/palm/coldsync/
+
+checksums           rmd160  68785217968001a5e7fc6c5921e8dde5e15f421d \
+                    sha256  325ed708c02f4a4e4928eb8016c8eb2b8c7e9b5fd3c0c4e5f2705b0d8ec5dcee \
+                    size    717669
+
+depends_build       bin:bison:bison \
+                    bin:flex:flex
+depends_lib         port:perl5 \
+                    port:libusb
+
+configure.args      --with-libusb
+
+use_parallel_build  no
