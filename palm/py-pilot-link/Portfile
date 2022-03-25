@@ -1,0 +1,27 @@
+PortSystem 1.0
+PortGroup python 1.0
+
+name		py-pilot-link
+version		0.12.5
+revision	4
+categories	palm python
+maintainers	nomaintainer
+description	palm-pilot libraries and tools
+long_description	pilot-link is a suite of tools used to connect your \
+	Palm or PalmOS compatible handheld. It includes userspace conduits  \
+	that allow you to synchronize information to and from your Palm.
+
+platforms	darwin
+homepage	http://www.pilot-link.org/
+master_sites	https://mirrors.nkorth.com/pilot-link/ \
+                http://downloads.pilot-link.org/
+use_bzip2	yes
+checksums	md5 568c55bf504b044f6fbd50baa407c990 \
+		sha1 b822466333ba58bbb32d7cfe5c547f4e7a78bdee \
+		rmd160  806c87b9849d37fc5f88b453fb0842504be71a76
+
+python.versions 27
+
+depends_lib     port:pilot-link
+
+worksrcdir      ${distname}/bindings/Python
