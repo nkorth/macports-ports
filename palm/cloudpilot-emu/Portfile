@@ -1,0 +1,32 @@
+# -*- coding: utf-8; mode: tcl; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- vim:fenc=utf-8:ft=tcl:et:sw=4:ts=4:sts=4
+
+PortSystem          1.0
+PortGroup           makefile 1.0
+PortGroup           github 1.0
+
+github.setup        cloudpilot-emu cloudpilot-emu 1.10.5
+revision            0
+categories          palm
+license             GPL-3
+maintainers         {@nkorth nkorth.com:nkorth} nomaintainer
+description         A PalmOS emulator for the web (native version)
+long_description    Emulator for 68k PalmOS devices, including many \
+                    Sony Clie models and the Handera 330.
+
+checksums           rmd160  ed57de728e218ab686d040678b0204eeb1811ef3 \
+                    sha256  00478f2ed397dee4210ad32b02d9d18700372882c1088baf66713df6bc7015b8 \
+                    size    12253410
+
+depends_lib         port:readline \
+                    port:boost \
+                    port:libsdl2 \
+                    port:libsdl2_image
+
+patchfiles          fix-boost-lib-name.diff
+
+build.target        bin
+
+destroot {
+    xinstall -m 755 ${worksrcpath}/src/cloudpilot/cloudpilot \
+                    ${destroot}${prefix}/bin/${name}
+}
